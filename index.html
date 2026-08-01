@@ -12,20 +12,20 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
+            --bg-primary: #020604;
+            --bg-secondary: #0a120e;
             --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-hover: rgba(255, 255, 255, 0.06);
-            --accent-primary: #6C63FF;
-            --accent-secondary: #8B5CF6;
-            --accent-glow: rgba(108, 99, 255, 0.4);
+            --glass-border: rgba(16, 185, 129, 0.15);
+            --glass-hover: rgba(16, 185, 129, 0.08);
+            --accent-primary: #10b981;
+            --accent-secondary: #34d399;
+            --accent-glow: rgba(16, 185, 129, 0.3);
             --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --text-muted: #6b6b7b;
-            --success: #10B981;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --success: #10b981;
             --twitter-blue: #1DA1F2;
-            --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #8B5CF6 50%, #EC4899 100%);
+            --gradient-primary: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
         }
 
         html { scroll-behavior: smooth; }
@@ -45,8 +45,8 @@
         }
         .bg-gradient::before {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
         }
         @keyframes float {
@@ -58,7 +58,7 @@
         /* Navigation */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 20px 40px; background: rgba(10, 10, 15, 0.8);
+            padding: 20px 40px; background: rgba(2, 6, 4, 0.8);
             backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
         }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
@@ -67,8 +67,8 @@
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--text-primary); }
         .nav-cta {
-            background: var(--gradient-primary); color: white !important; padding: 10px 20px;
-            border-radius: 8px; font-weight: 600 !important; transition: transform 0.2s, box-shadow 0.2s;
+            background: var(--gradient-primary); color: #020604 !important; padding: 10px 20px;
+            border-radius: 8px; font-weight: 700 !important; transition: transform 0.2s, box-shadow 0.2s;
         }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px var(--accent-glow); }
 
@@ -81,7 +81,7 @@
         .badge {
             display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
             background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 99px;
-            font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 32px; backdrop-filter: blur(10px);
+            font-size: 13px; font-weight: 600; color: var(--accent-secondary); margin-bottom: 32px; backdrop-filter: blur(10px);
         }
         .badge-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -92,7 +92,7 @@
         .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
         .btn-primary {
-            background: var(--gradient-primary); color: white; padding: 16px 32px; border-radius: 12px;
+            background: var(--gradient-primary); color: #020604; padding: 16px 32px; border-radius: 12px;
             font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px;
         }
@@ -116,7 +116,7 @@
             background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 32px;
             backdrop-filter: blur(20px); transition: all 0.3s; position: relative; overflow: hidden;
         }
-        .feature-card:hover { transform: translateY(-4px); border-color: rgba(108, 99, 255, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .feature-card:hover { transform: translateY(-4px); border-color: var(--accent-primary); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
         .feature-icon { width: 48px; height: 48px; background: var(--gradient-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
         .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
         .feature-card p { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
@@ -127,43 +127,18 @@
             background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 32px;
             backdrop-filter: blur(20px); transition: all 0.3s;
         }
-        .testimonial-card:hover { transform: translateY(-4px); border-color: rgba(108, 99, 255, 0.3); }
+        .testimonial-card:hover { transform: translateY(-4px); border-color: var(--accent-primary); }
         .testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
         .testimonial-author { display: flex; align-items: center; gap: 12px; }
-        .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+        .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: #020604; }
         .author-info h4 { font-size: 14px; font-weight: 600; }
         .author-info p { font-size: 12px; color: var(--text-muted); }
-
-        /* Pricing */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .pricing-card {
-            background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px 32px;
-            backdrop-filter: blur(20px); position: relative; transition: all 0.3s;
-        }
-        .pricing-card.featured {
-            border: 2px solid var(--accent-primary);
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
-        }
-        .pricing-card.featured::before {
-            content: 'BEST VALUE'; position: absolute; top: -12px; right: 24px;
-            background: var(--gradient-primary); color: white; padding: 6px 16px; border-radius: 99px;
-            font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
-        }
-        .pricing-card:hover { transform: translateY(-4px); }
-        .pricing-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        .pricing-card .price { font-size: 48px; font-weight: 900; margin: 16px 0; letter-spacing: -0.02em; }
-        .pricing-card .price span { font-size: 16px; font-weight: 500; color: var(--text-secondary); }
-        .pricing-card .original-price { text-decoration: line-through; color: var(--text-muted); font-size: 20px; margin-left: 8px; }
-        .pricing-card ul { list-style: none; margin: 24px 0; }
-        .pricing-card ul li { padding: 8px 0; color: var(--text-secondary); font-size: 15px; display: flex; align-items: center; gap: 12px; }
-        .pricing-card ul li::before { content: '✓'; color: var(--success); font-weight: 700; }
-        .pricing-card .btn-primary, .pricing-card .btn-secondary { width: 100%; justify-content: center; display: inline-flex; text-align: center; }
 
         /* Referral Banner */
         .referral-section { max-width: 800px; margin: 0 auto 100px; padding: 0 40px; }
         .referral-card {
-            background: linear-gradient(135deg, rgba(29, 161, 242, 0.1) 0%, rgba(108, 99, 255, 0.05) 100%);
-            border: 1px solid rgba(29, 161, 242, 0.3); border-radius: 24px; padding: 40px;
+            background: linear-gradient(135deg, rgba(29, 161, 242, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 1px solid rgba(29, 161, 242, 0.2); border-radius: 24px; padding: 40px;
             backdrop-filter: blur(20px); text-align: center; position: relative; overflow: hidden;
         }
         .referral-card::before {
@@ -178,6 +153,31 @@
         }
         .twitter-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(29, 161, 242, 0.4); }
 
+        /* Pricing */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .pricing-card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px 32px;
+            backdrop-filter: blur(20px); position: relative; transition: all 0.3s;
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--accent-primary);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
+        }
+        .pricing-card.featured::before {
+            content: 'BEST VALUE'; position: absolute; top: -12px; right: 24px;
+            background: var(--gradient-primary); color: #020604; padding: 6px 16px; border-radius: 99px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+        }
+        .pricing-card:hover { transform: translateY(-4px); }
+        .pricing-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .pricing-card .price { font-size: 48px; font-weight: 900; margin: 16px 0; letter-spacing: -0.02em; }
+        .pricing-card .price span { font-size: 16px; font-weight: 500; color: var(--text-secondary); }
+        .pricing-card .original-price { text-decoration: line-through; color: var(--text-muted); font-size: 20px; margin-left: 8px; }
+        .pricing-card ul { list-style: none; margin: 24px 0; }
+        .pricing-card ul li { padding: 8px 0; color: var(--text-secondary); font-size: 15px; display: flex; align-items: center; gap: 12px; }
+        .pricing-card ul li::before { content: '✓'; color: var(--success); font-weight: 700; }
+        .pricing-card .btn-primary, .pricing-card .btn-secondary { width: 100%; justify-content: center; display: inline-flex; text-align: center; }
+
         /* CTA */
         .cta-box {
             max-width: 700px; margin: 0 auto; background: var(--glass-bg); border: 1px solid var(--glass-border);
@@ -186,8 +186,17 @@
         .cta-box h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
         .cta-box p { font-size: 18px; color: var(--text-secondary); margin-bottom: 32px; }
 
+        /* Legal Sections (For Lemon Squeezy Compliance) */
+        .legal-section { position: relative; z-index: 1; padding: 60px 40px; max-width: 800px; margin: 0 auto; border-top: 1px solid var(--glass-border); }
+        .legal-section h3 { font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--accent-secondary); }
+        .legal-section h4 { font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--text-primary); }
+        .legal-section p, .legal-section li { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .legal-section ul { padding-left: 20px; margin-bottom: 15px; }
+
         /* Footer */
         footer { position: relative; z-index: 1; padding: 40px; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 14px; }
+        footer a { color: var(--text-secondary); text-decoration: none; margin: 0 10px; transition: color 0.2s; }
+        footer a:hover { color: var(--accent-primary); }
 
         @media (max-width: 768px) {
             nav { padding: 16px 20px; }
@@ -195,7 +204,7 @@
             .hero { padding: 100px 20px 60px; }
             .section { padding: 60px 20px; }
             .feature-card, .pricing-card, .testimonial-card { padding: 24px; }
-            .referral-section { padding: 0 20px; }
+            .referral-section, .legal-section { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -204,7 +213,7 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo"> Prompt Vault</div>
+            <div class="logo">⚡ Prompt Vault</div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
@@ -228,7 +237,7 @@
                 Team sharing, cloud backup, and lifetime access — no bloat.
             </p>
             <div class="hero-cta">
-                <a href="https://chromewebstore.google.com" class="btn-primary"> Add to Chrome — Free</a>
+                <a href="https://chromewebstore.google.com" class="btn-primary">🚀 Add to Chrome — Free</a>
                 <a href="#pricing" class="btn-secondary">View Pricing</a>
             </div>
         </div>
@@ -246,22 +255,22 @@
                 <p>Works on ChatGPT, Claude, Gemini, DeepSeek, Copilot, and any AI chat. One-click prompt insertion.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">👥</div>
                 <h3>Team Sharing</h3>
                 <p>Share your best prompts with unlimited team members. Real-time sync, role-based access.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">️</div>
+                <div class="feature-icon">☁️</div>
                 <h3>Google Drive Backup</h3>
                 <p>Automatic backups to your personal Google Drive. Your data, your control. Never lose a prompt.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">🔒</div>
                 <h3>Privacy First</h3>
                 <p>Shadow DOM isolation. No data leaks. No tracking. Your prompts stay yours.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">🕒</div>
                 <h3>Version History</h3>
                 <p>Track every change. Roll back to any version. Compare edits side-by-side.</p>
             </div>
@@ -273,7 +282,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="section">
         <div class="section-header">
             <h2>Loved by early adopters</h2>
@@ -313,7 +321,6 @@
         </div>
     </section>
 
-    <!-- Referral Section -->
     <section class="referral-section">
         <div class="referral-card">
             <h3>Want 3 Months of Pro for Free?</h3>
@@ -325,7 +332,6 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section class="section" id="pricing">
         <div class="section-header">
             <h2>Simple, honest pricing</h2>
@@ -353,7 +359,7 @@
                     <li>Advanced version history</li>
                     <li>Cancel anytime</li>
                 </ul>
-                <a href="https://yourstore.lemonsqueezy.com/checkout/buy/monthly-id" class="btn-secondary">Start Monthly Plan</a>
+                <a href="https://prompt-vault.lemonsqueezy.com/checkout/buy/monthly-id" class="btn-secondary">Start Monthly Plan</a>
             </div>
             <div class="pricing-card featured">
                 <h3>Pro Lifetime</h3>
@@ -365,7 +371,7 @@
                     <li>Lifetime feature updates</li>
                     <li>First 100 users only</li>
                 </ul>
-                <a href="https://yourstore.lemonsqueezy.com/checkout/buy/lifetime-id" class="btn-primary">Get Lifetime Access</a>
+                <a href="https://prompt-vault.lemonsqueezy.com/checkout/buy/lifetime-id" class="btn-primary">Get Lifetime Access</a>
             </div>
         </div>
     </section>
@@ -378,8 +384,50 @@
         </div>
     </section>
 
+    <!-- LEGAL SECTIONS FOR LEMON SQUEEZY COMPLIANCE -->
+    <section class="legal-section" id="privacy">
+        <h3>Privacy Policy</h3>
+        <p><strong>Last Updated:</strong> July 2026</p>
+        <p>Prompt Vault is a Chrome Extension designed to help you manage and inject AI prompts. We take your privacy seriously.</p>
+        <h4>1. Information We Collect</h4>
+        <ul>
+            <li><strong>Google Account Email:</strong> Collected only if you choose to sign in to enable Team Sharing or Cloud Backup features.</li>
+            <li><strong>Prompt Data:</strong> Stored locally in your browser's `chrome.storage`. If you enable Team Sharing or Google Drive Backup, this data is encrypted and stored in your personal Supabase database or Google Drive account.</li>
+        </ul>
+        <h4>2. How We Use Your Information</h4>
+        <p>We use your email solely for authentication and account management. We do not sell, share, or analyze your prompt data for advertising or training purposes.</p>
+        <h4>3. Data Security</h4>
+        <p>All data transmission is encrypted via HTTPS. We utilize Supabase's secure authentication and Google's official OAuth APIs.</p>
+        <h4>4. Contact Us</h4>
+        <p>For any privacy-related questions, please contact us at: <a href="mailto:cookingconverter.tools@gmail.com" style="color: var(--accent-primary);">cookingconverter.tools@gmail.com</a></p>
+    </section>
+
+    <section class="legal-section" id="terms">
+        <h3>Terms of Service</h3>
+        <p><strong>Last Updated:</strong> July 2026</p>
+        <h4>1. Acceptance of Terms</h4>
+        <p>By installing and using Prompt Vault, you agree to these Terms of Service.</p>
+        <h4>2. Service Description</h4>
+        <p>Prompt Vault is provided "as is" to help users organize and inject text prompts into web-based AI chat interfaces. We do not guarantee uninterrupted or error-free service.</p>
+        <h4>3. Pricing and Payments</h4>
+        <ul>
+            <li><strong>Starter Plan:</strong> Free, limited to 10 prompt slots.</li>
+            <li><strong>Pro Monthly:</strong> Billed at $7/month. Cancel anytime via your Lemon Squeezy customer portal.</li>
+            <li><strong>Pro Lifetime:</strong> A one-time payment of $29. This grants lifetime access to the current major version of the software and future minor updates. Major version overhauls may require a separate upgrade fee at our discretion.</li>
+        </ul>
+        <h4>4. Limitation of Liability</h4>
+        <p>Prompt Vault is not liable for any data loss. We strongly recommend using the built-in Google Drive Backup feature to safeguard your prompts.</p>
+        <h4>5. Contact</h4>
+        <p>For support or billing inquiries, email: <a href="mailto:cookingconverter.tools@gmail.com" style="color: var(--accent-primary);">cookingconverter.tools@gmail.com</a></p can>
+    </section>
+
     <footer>
         <p>© 2026 Prompt Vault. Built with ❤️ for the AI-first generation.</p>
+        <p style="margin-top: 12px; font-size: 13px;">
+            <a href="#privacy">Privacy Policy</a> • 
+            <a href="#terms">Terms of Service</a> • 
+            <a href="mailto:cookingconverter.tools@gmail.com">Contact Support</a>
+        </p>
     </footer>
 </body>
 </html>
