@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Vault — The Lean AI Prompt Manager for Professionals</title>
+    <title>Prompt Vault — The Professional AI Prompt Manager</title>
     <meta name="description" content="Save, organize, and inject AI prompts across ChatGPT, Claude, Gemini & more. Team sharing, cloud backup, lifetime access.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,20 +12,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg-primary: #020604;
-            --bg-secondary: #0a120e;
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
             --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(16, 185, 129, 0.15);
-            --glass-hover: rgba(16, 185, 129, 0.08);
-            --accent-primary: #10b981;
-            --accent-secondary: #34d399;
-            --accent-glow: rgba(16, 185, 129, 0.3);
+            --glass-border: rgba(139, 92, 246, 0.2);
+            --glass-hover: rgba(139, 92, 246, 0.1);
+            --accent-primary: #8b5cf6;
+            --accent-secondary: #a78bfa;
+            --accent-glow: rgba(139, 92, 246, 0.4);
             --text-primary: #ffffff;
             --text-secondary: #9ca3af;
             --text-muted: #6b7280;
             --success: #10b981;
             --twitter-blue: #1DA1F2;
-            --gradient-primary: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+            --gradient-dark: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
         }
 
         html { scroll-behavior: smooth; }
@@ -45,8 +46,8 @@
         }
         .bg-gradient::before {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
         }
         @keyframes float {
@@ -58,16 +59,25 @@
         /* Navigation */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 20px 40px; background: rgba(2, 6, 4, 0.8);
+            padding: 20px 40px; background: rgba(15, 15, 26, 0.9);
             backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
         }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 20px; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .logo { 
+            font-size: 24px; font-weight: 800; 
+            background: var(--gradient-primary); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--text-primary); }
         .nav-cta {
-            background: var(--gradient-primary); color: #020604 !important; padding: 10px 20px;
+            background: var(--gradient-primary); color: #0f0f1a !important; padding: 10px 20px;
             border-radius: 8px; font-weight: 700 !important; transition: transform 0.2s, box-shadow 0.2s;
         }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px var(--accent-glow); }
@@ -75,9 +85,9 @@
         /* Hero Section */
         .hero {
             position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            padding: 120px 40px 80px; text-align: center;
+            padding: 140px 40px 80px; text-align: center;
         }
-        .hero-content { max-width: 800px; }
+        .hero-content { max-width: 900px; }
         .badge {
             display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
             background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 99px;
@@ -89,10 +99,10 @@
         h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; }
         .gradient-text { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-subtitle { font-size: 20px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
-        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
 
         .btn-primary {
-            background: var(--gradient-primary); color: #020604; padding: 16px 32px; border-radius: 12px;
+            background: var(--gradient-primary); color: #0f0f1a; padding: 16px 32px; border-radius: 12px;
             font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px;
         }
@@ -104,13 +114,131 @@
         }
         .btn-secondary:hover { background: var(--glass-hover); border-color: var(--accent-primary); }
 
+        /* Hero Image Showcase */
+        .hero-image {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--glass-border);
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* Sections */
         .section { position: relative; z-index: 1; padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 64px; }
         .section-header h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
         .section-header p { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
-        /* Features */
+        /* Features with Screenshots */
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+        .feature-showcase.reverse {
+            direction: rtl;
+        }
+        .feature-showcase.reverse > * {
+            direction: ltr;
+        }
+        .feature-content h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .feature-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .feature-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .feature-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--glass-border);
+            border: 1px solid var(--glass-border);
+        }
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Screenshots Grid */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+        .screenshot-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-primary);
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .screenshot-caption {
+            padding: 20px;
+            text-align: center;
+        }
+        .screenshot-caption h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .screenshot-caption p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Features Grid */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
         .feature-card {
             background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 32px;
@@ -130,15 +258,15 @@
         .testimonial-card:hover { transform: translateY(-4px); border-color: var(--accent-primary); }
         .testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
         .testimonial-author { display: flex; align-items: center; gap: 12px; }
-        .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: #020604; }
+        .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: #0f0f1a; }
         .author-info h4 { font-size: 14px; font-weight: 600; }
         .author-info p { font-size: 12px; color: var(--text-muted); }
 
         /* Referral Banner */
         .referral-section { max-width: 800px; margin: 0 auto 100px; padding: 0 40px; }
         .referral-card {
-            background: linear-gradient(135deg, rgba(29, 161, 242, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
-            border: 1px solid rgba(29, 161, 242, 0.2); border-radius: 24px; padding: 40px;
+            background: linear-gradient(135deg, rgba(29, 161, 242, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 24px; padding: 40px;
             backdrop-filter: blur(20px); text-align: center; position: relative; overflow: hidden;
         }
         .referral-card::before {
@@ -161,11 +289,11 @@
         }
         .pricing-card.featured {
             border: 2px solid var(--accent-primary);
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(167, 139, 250, 0.05) 100%);
         }
         .pricing-card.featured::before {
             content: 'BEST VALUE'; position: absolute; top: -12px; right: 24px;
-            background: var(--gradient-primary); color: #020604; padding: 6px 16px; border-radius: 99px;
+            background: var(--gradient-primary); color: #0f0f1a; padding: 6px 16px; border-radius: 99px;
             font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
         }
         .pricing-card:hover { transform: translateY(-4px); }
@@ -186,7 +314,7 @@
         .cta-box h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
         .cta-box p { font-size: 18px; color: var(--text-secondary); margin-bottom: 32px; }
 
-        /* Legal Sections (For Lemon Squeezy Compliance) */
+        /* Legal Sections */
         .legal-section { position: relative; z-index: 1; padding: 60px 40px; max-width: 800px; margin: 0 auto; border-top: 1px solid var(--glass-border); }
         .legal-section h3 { font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--accent-secondary); }
         .legal-section h4 { font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--text-primary); }
@@ -197,6 +325,17 @@
         footer { position: relative; z-index: 1; padding: 40px; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 14px; }
         footer a { color: var(--text-secondary); text-decoration: none; margin: 0 10px; transition: color 0.2s; }
         footer a:hover { color: var(--accent-primary); }
+
+        @media (max-width: 968px) {
+            .feature-showcase,
+            .feature-showcase.reverse {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         @media (max-width: 768px) {
             nav { padding: 16px 20px; }
@@ -216,6 +355,7 @@
             <div class="logo">⚡ Prompt Vault</div>
             <div class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#pricing">Pricing</a>
                 <a href="https://chromewebstore.google.com" class="nav-cta">Add to Chrome</a>
             </div>
@@ -229,8 +369,8 @@
                 Trusted by 50+ AI professionals
             </div>
             <h1>
-                The Lean AI Prompt Manager for
-                <span class="gradient-text">Professionals</span>
+                The Professional AI Prompt
+                <span class="gradient-text">Manager</span>
             </h1>
             <p class="hero-subtitle">
                 Save, organize, and inject AI prompts across ChatGPT, Claude, Gemini & more. 
@@ -240,13 +380,116 @@
                 <a href="https://chromewebstore.google.com" class="btn-primary">🚀 Add to Chrome — Free</a>
                 <a href="#pricing" class="btn-secondary">View Pricing</a>
             </div>
+            
+            <!-- Hero Image -->
+            <div class="hero-image">
+                <img src="screenshot-library.png" alt="Prompt Vault Library - Organize your AI prompts">
+            </div>
         </div>
     </section>
 
-    <section class="section" id="features">
+    <!-- Features with Screenshots -->
+    <section class="section" id="how-it-works">
         <div class="section-header">
             <h2>Everything you need. Nothing you don't.</h2>
             <p>Built for freelancers, agencies, and teams who live in AI chat interfaces.</p>
+        </div>
+
+        <!-- Feature 1: Fill Variables -->
+        <div class="feature-showcase">
+            <div class="feature-content">
+                <h3>Smart Variable Injection</h3>
+                <p>Never manually copy-paste placeholders again. Our intelligent fill-popup detects variables in your prompts and provides a seamless form to complete them before injection.</p>
+                <ul class="feature-list">
+                    <li>Auto-detects {{placeholders}}</li>
+                    <li>Save snippets for reuse</li>
+                    <li>File upload support</li>
+                    <li>One-click insertion</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <img src="screenshot-fill-popup.png" alt="Fill variables popup for smart prompt injection">
+            </div>
+        </div>
+
+        <!-- Feature 2: Save Drawer -->
+        <div class="feature-showcase reverse">
+            <div class="feature-content">
+                <h3>Capture Prompts Instantly</h3>
+                <p>Found a great prompt? Save it in seconds with our sleek slide-out drawer. Auto-detects platform, extracts placeholders, and organizes everything automatically.</p>
+                <ul class="feature-list">
+                    <li>Quick save from any webpage</li>
+                    <li>Auto-detects AI platform</li>
+                    <li>Smart placeholder extraction</li>
+                    <li>Token count tracking</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <img src="screenshot-save-drawer.png" alt="Save prompt drawer with auto-detection">
+            </div>
+        </div>
+
+        <!-- Feature 3: Settings & Backup -->
+        <div class="feature-showcase">
+            <div class="feature-content">
+                <h3>Enterprise-Grade Backup</h3>
+                <p>Your prompts are your intellectual property. We provide Google Drive backup, team sync, and export options to ensure you never lose your work.</p>
+                <ul class="feature-list">
+                    <li>Google Drive integration</li>
+                    <li>Team collaboration</li>
+                    <li>JSON & template export</li>
+                    <li>Version history</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <img src="screenshot-settings.png" alt="Settings panel with Google Drive backup and team features">
+            </div>
+        </div>
+    </section>
+
+    <!-- All Screenshots Grid -->
+    <section class="section">
+        <div class="section-header">
+            <h2>See it in action</h2>
+            <p>Every feature designed for maximum productivity.</p>
+        </div>
+        <div class="screenshots-grid">
+            <div class="screenshot-card">
+                <img src="screenshot-library.png" alt="Prompt library with organized cards">
+                <div class="screenshot-caption">
+                    <h4>Organized Library</h4>
+                    <p>Beautiful card-based interface with tags and filters</p>
+                </div>
+            </div>
+            <div class="screenshot-card">
+                <img src="screenshot-fill-popup.png" alt="Variable fill popup">
+                <div class="screenshot-caption">
+                    <h4>Smart Injection</h4>
+                    <p>Fill variables before inserting into AI chat</p>
+                </div>
+            </div>
+            <div class="screenshot-card">
+                <img src="screenshot-save-drawer.png" alt="Save prompt drawer">
+                <div class="screenshot-caption">
+                    <h4>Quick Capture</h4>
+                    <p>Save prompts from anywhere with one shortcut</p>
+                </div>
+            </div>
+            <div class="screenshot-card">
+                <img src="screenshot-settings.png" alt="Settings and backup">
+                <div class="screenshot-caption">
+                    <h4>Cloud Backup</h4>
+                    <p>Google Drive sync and team collaboration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <h2>Powerful features</h2>
+            <p>Everything you need to master AI prompts.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -275,13 +518,14 @@
                 <p>Track every change. Roll back to any version. Compare edits side-by-side.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
+                <div class="feature-icon"></div>
                 <h3>Smart Organization</h3>
                 <p>Tags, projects, platform filters, and instant search. Find any prompt in seconds.</p>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials -->
     <section class="section">
         <div class="section-header">
             <h2>Loved by early adopters</h2>
@@ -321,6 +565,7 @@
         </div>
     </section>
 
+    <!-- Referral -->
     <section class="referral-section">
         <div class="referral-card">
             <h3>Want 3 Months of Pro for Free?</h3>
@@ -332,6 +577,7 @@
         </div>
     </section>
 
+    <!-- Pricing -->
     <section class="section" id="pricing">
         <div class="section-header">
             <h2>Simple, honest pricing</h2>
@@ -376,6 +622,7 @@
         </div>
     </section>
 
+    <!-- CTA -->
     <section class="section">
         <div class="cta-box">
             <h2>Ready to supercharge your AI workflow?</h2>
@@ -384,7 +631,7 @@
         </div>
     </section>
 
-    <!-- LEGAL SECTIONS FOR LEMON SQUEEZY COMPLIANCE -->
+    <!-- Legal Sections -->
     <section class="legal-section" id="privacy">
         <h3>Privacy Policy</h3>
         <p><strong>Last Updated:</strong> July 2026</p>
@@ -418,9 +665,10 @@
         <h4>4. Limitation of Liability</h4>
         <p>Prompt Vault is not liable for any data loss. We strongly recommend using the built-in Google Drive Backup feature to safeguard your prompts.</p>
         <h4>5. Contact</h4>
-        <p>For support or billing inquiries, email: <a href="mailto:cookingconverter.tools@gmail.com" style="color: var(--accent-primary);">cookingconverter.tools@gmail.com</a></p can>
+        <p>For support or billing inquiries, email: <a href="mailto:cookingconverter.tools@gmail.com" style="color: var(--accent-primary);">cookingconverter.tools@gmail.com</a></p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2026 Prompt Vault. Built with ❤️ for the AI-first generation.</p>
         <p style="margin-top: 12px; font-size: 13px;">
