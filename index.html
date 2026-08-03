@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Vault — The Professional AI Prompt Manager</title>
-    <meta name="description" content="Save, organize, and inject AI prompts across ChatGPT, Claude, Gemini & more. Team sharing, cloud backup, lifetime access.">
+    <title>Prompt Vault: AI Manager — Team Sharing & Google Drive Backup</title>
+    <meta name="description" content="Save, organize, and inject AI prompts across ChatGPT, Claude, Gemini & more. Unlimited team sharing, Google Drive backup, and lifetime access.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,18 +15,21 @@
             --bg-primary: #0f0f1a;
             --bg-secondary: #1a1a2e;
             --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(139, 92, 246, 0.2);
-            --glass-hover: rgba(139, 92, 246, 0.1);
-            --accent-primary: #8b5cf6;
-            --accent-secondary: #a78bfa;
-            --accent-glow: rgba(139, 92, 246, 0.4);
+            --glass-border: rgba(6, 182, 212, 0.2);
+            --glass-hover: rgba(6, 182, 212, 0.1);
+            --accent-primary: #06b6d4;
+            --accent-secondary: #22d3ee;
+            --accent-glow: rgba(6, 182, 212, 0.4);
             --text-primary: #ffffff;
             --text-secondary: #9ca3af;
             --text-muted: #6b7280;
             --success: #10b981;
+            --warning: #f59e0b;
+            --gold: #fcd34d;
             --twitter-blue: #1DA1F2;
-            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
-            --gradient-dark: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
+            --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
+            --gradient-dark: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
         }
 
         html { scroll-behavior: smooth; }
@@ -46,8 +49,8 @@
         }
         .bg-gradient::before {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
         }
         @keyframes float {
@@ -59,7 +62,7 @@
         /* Navigation */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 20px 40px; background: rgba(15, 15, 26, 0.9);
+            padding: 20px 40px; background: rgba(15, 15, 26, 0.95);
             backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
         }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
@@ -71,7 +74,13 @@
             background-clip: text;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+        }
+        .logo-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            -webkit-text-fill-color: initial;
         }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
@@ -98,7 +107,7 @@
 
         h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; }
         .gradient-text { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { font-size: 20px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+        .hero-subtitle { font-size: 20px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px; line-height: 1.6; }
         .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
 
         .btn-primary {
@@ -265,8 +274,8 @@
         /* Referral Banner */
         .referral-section { max-width: 800px; margin: 0 auto 100px; padding: 0 40px; }
         .referral-card {
-            background: linear-gradient(135deg, rgba(29, 161, 242, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 24px; padding: 40px;
+            background: linear-gradient(135deg, rgba(29, 161, 242, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 24px; padding: 40px;
             backdrop-filter: blur(20px); text-align: center; position: relative; overflow: hidden;
         }
         .referral-card::before {
@@ -289,12 +298,17 @@
         }
         .pricing-card.featured {
             border: 2px solid var(--accent-primary);
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(167, 139, 250, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
         }
         .pricing-card.featured::before {
-            content: 'BEST VALUE'; position: absolute; top: -12px; right: 24px;
+            content: 'FOUNDING MEMBER'; position: absolute; top: -12px; right: 24px;
             background: var(--gradient-primary); color: #0f0f1a; padding: 6px 16px; border-radius: 99px;
             font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+        }
+        .pricing-card.featured::after {
+            content: 'First 100 users only'; position: absolute; top: 40px; right: 20px;
+            background: var(--gold); color: #0f0f1a; padding: 4px 12px; border-radius: 99px;
+            font-size: 10px; font-weight: 700;
         }
         .pricing-card:hover { transform: translateY(-4px); }
         .pricing-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
@@ -352,7 +366,18 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo">⚡ Prompt Vault</div>
+            <div class="logo">
+                <span class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 2px;">
+                        <rect x="3" y="11" width="12" height="10" rx="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;">
+                        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+                    </svg>
+                </span>
+                Prompt Vault
+            </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
@@ -366,15 +391,15 @@
         <div class="hero-content">
             <div class="badge">
                 <span class="badge-dot"></span>
-                Trusted by 50+ AI professionals
+                Trusted by 50+ AI professionals & agencies
             </div>
             <h1>
-                The Professional AI Prompt
-                <span class="gradient-text">Manager</span>
+                The Only Prompt Manager with<br>
+                <span class="gradient-text">Unlimited Teams & Google Drive Backup</span>
             </h1>
             <p class="hero-subtitle">
                 Save, organize, and inject AI prompts across ChatGPT, Claude, Gemini & more. 
-                Team sharing, cloud backup, and lifetime access — no bloat.
+                Built for teams who care about their data. Unlimited members. One flat price.
             </p>
             <div class="hero-cta">
                 <a href="https://chromewebstore.google.com" class="btn-primary">🚀 Add to Chrome — Free</a>
@@ -391,15 +416,49 @@
     <!-- Features with Screenshots -->
     <section class="section" id="how-it-works">
         <div class="section-header">
-            <h2>Everything you need. Nothing you don't.</h2>
-            <p>Built for freelancers, agencies, and teams who live in AI chat interfaces.</p>
+            <h2>Built for Teams That Own Their Data</h2>
+            <p>The only prompt manager combining unlimited team sharing with user-controlled cloud backup.</p>
         </div>
 
-        <!-- Feature 1: Fill Variables -->
+        <!-- Feature 1: Unlimited Teams -->
+        <div class="feature-showcase">
+            <div class="feature-content">
+                <h3>Unlimited Team Members</h3>
+                <p>Stop paying per seat. Share your prompt library with your entire agency, team, or organization for one flat price. Real-time sync keeps everyone on the same page.</p>
+                <ul class="feature-list">
+                    <li>No per-user pricing</li>
+                    <li>Unlimited team members</li>
+                    <li>Real-time collaboration</li>
+                    <li>Role-based permissions</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <img src="screenshot-settings.png" alt="Team sharing and Google Drive backup settings">
+            </div>
+        </div>
+
+        <!-- Feature 2: Google Drive Backup -->
+        <div class="feature-showcase reverse">
+            <div class="feature-content">
+                <h3>Your Data, Your Drive</h3>
+                <p>Unlike competitors who lock your prompts in their cloud, we back up to YOUR Google Drive. You own your data. Export anytime. No vendor lock-in.</p>
+                <ul class="feature-list">
+                    <li>Google Drive integration</li>
+                    <li>You control your data</li>
+                    <li>Encrypted backups</li>
+                    <li>Export anytime</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <img src="screenshot-save-drawer.png" alt="Save prompt with Google Drive backup">
+            </div>
+        </div>
+
+        <!-- Feature 3: Smart Injection -->
         <div class="feature-showcase">
             <div class="feature-content">
                 <h3>Smart Variable Injection</h3>
-                <p>Never manually copy-paste placeholders again. Our intelligent fill-popup detects variables in your prompts and provides a seamless form to complete them before injection.</p>
+                <p>Never manually copy-paste placeholders again. Our intelligent fill-popup detects variables and provides a seamless form to complete them before injection.</p>
                 <ul class="feature-list">
                     <li>Auto-detects {{placeholders}}</li>
                     <li>Save snippets for reuse</li>
@@ -409,40 +468,6 @@
             </div>
             <div class="feature-image">
                 <img src="screenshot-fill-popup.png" alt="Fill variables popup for smart prompt injection">
-            </div>
-        </div>
-
-        <!-- Feature 2: Save Drawer -->
-        <div class="feature-showcase reverse">
-            <div class="feature-content">
-                <h3>Capture Prompts Instantly</h3>
-                <p>Found a great prompt? Save it in seconds with our sleek slide-out drawer. Auto-detects platform, extracts placeholders, and organizes everything automatically.</p>
-                <ul class="feature-list">
-                    <li>Quick save from any webpage</li>
-                    <li>Auto-detects AI platform</li>
-                    <li>Smart placeholder extraction</li>
-                    <li>Token count tracking</li>
-                </ul>
-            </div>
-            <div class="feature-image">
-                <img src="screenshot-save-drawer.png" alt="Save prompt drawer with auto-detection">
-            </div>
-        </div>
-
-        <!-- Feature 3: Settings & Backup -->
-        <div class="feature-showcase">
-            <div class="feature-content">
-                <h3>Enterprise-Grade Backup</h3>
-                <p>Your prompts are your intellectual property. We provide Google Drive backup, team sync, and export options to ensure you never lose your work.</p>
-                <ul class="feature-list">
-                    <li>Google Drive integration</li>
-                    <li>Team collaboration</li>
-                    <li>JSON & template export</li>
-                    <li>Version history</li>
-                </ul>
-            </div>
-            <div class="feature-image">
-                <img src="screenshot-settings.png" alt="Settings panel with Google Drive backup and team features">
             </div>
         </div>
     </section>
@@ -488,39 +513,39 @@
     <!-- Core Features Grid -->
     <section class="section" id="features">
         <div class="section-header">
-            <h2>Powerful features</h2>
-            <p>Everything you need to master AI prompts.</p>
+            <h2>Why Professionals Choose Prompt Vault</h2>
+            <p>Everything you need to master AI prompts—without the bloat.</p>
         </div>
         <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Unlimited Team Sharing</h3>
+                <p>Share with unlimited team members. No per-seat pricing. Real-time sync ensures everyone uses the latest version.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Google Drive Backup</h3>
+                <p>Automatic backups to YOUR Google Drive. You own your data. Export anytime. No proprietary cloud lock-in.</p>
+            </div>
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>Universal Injection</h3>
                 <p>Works on ChatGPT, Claude, Gemini, DeepSeek, Copilot, and any AI chat. One-click prompt insertion.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Team Sharing</h3>
-                <p>Share your best prompts with unlimited team members. Real-time sync, role-based access.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">☁️</div>
-                <h3>Google Drive Backup</h3>
-                <p>Automatic backups to your personal Google Drive. Your data, your control. Never lose a prompt.</p>
-            </div>
-            <div class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h3>Privacy First</h3>
-                <p>Shadow DOM isolation. No data leaks. No tracking. Your prompts stay yours.</p>
+                <p>Shadow DOM isolation. No data leaks. No tracking. Your prompts stay yours. Enterprise-grade security.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🕒</div>
                 <h3>Version History</h3>
-                <p>Track every change. Roll back to any version. Compare edits side-by-side.</p>
+                <p>Track every change. Roll back to any version. Compare edits side-by-side. Never lose a good prompt.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">📊</div>
                 <h3>Smart Organization</h3>
-                <p>Tags, projects, platform filters, and instant search. Find any prompt in seconds.</p>
+                <p>Tags, projects, platform filters, and instant search. Find any prompt in seconds. Built for power users.</p>
             </div>
         </div>
     </section>
@@ -533,7 +558,7 @@
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">"Prompt Vault saved me hours every week. The team sharing feature is an absolute game-changer for my agency. We finally have a single source of truth."</p>
+                <p class="testimonial-text">"Prompt Vault saved me hours every week. The unlimited team sharing is a game-changer for my agency. We finally have a single source of truth without paying $20/user/month."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">S</div>
                     <div class="author-info">
@@ -543,7 +568,7 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-text">"Finally, a prompt manager that doesn't feel bloated. The injection on ChatGPT is flawless, and the Google Drive backup gives me total peace of mind."</p>
+                <p class="testimonial-text">"Finally, a prompt manager that respects my data. Google Drive backup means I own my prompts, not some proprietary cloud. The injection on ChatGPT is flawless."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">D</div>
                     <div class="author-info">
@@ -553,7 +578,7 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-text">"I was skeptical about the lifetime deal, but the version history alone is worth it. It's the leanest, most professional tool in this space."</p>
+                <p class="testimonial-text">"I was skeptical about the $29 lifetime deal, but it's legit. Unlimited team members + Google Drive backup + version history. Cheaper than 4 months of competitors."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">M</div>
                     <div class="author-info">
@@ -580,7 +605,7 @@
     <!-- Pricing -->
     <section class="section" id="pricing">
         <div class="section-header">
-            <h2>Simple, honest pricing</h2>
+            <h2>Simple, Honest Pricing</h2>
             <p>Start free with 10 prompts. Upgrade when you're ready to scale.</p>
         </div>
         <div class="pricing-grid">
@@ -600,7 +625,7 @@
                 <div class="price">$7 <span>/ month</span></div>
                 <ul>
                     <li>Unlimited prompt slots</li>
-                    <li>Team sharing (unlimited members)</li>
+                    <li>Unlimited team members</li>
                     <li>Google Drive backup</li>
                     <li>Advanced version history</li>
                     <li>Cancel anytime</li>
@@ -609,13 +634,13 @@
             </div>
             <div class="pricing-card featured">
                 <h3>Pro Lifetime</h3>
-                <div class="price">$29 <span>one-time</span> <span class="original-price">$49</span></div>
+                <div class="price">$29 <span>one-time</span> <span class="original-price">$79</span></div>
                 <ul>
                     <li>Everything in Monthly</li>
                     <li>Pay once, use forever</li>
                     <li>Priority support</li>
                     <li>Lifetime feature updates</li>
-                    <li>First 100 users only</li>
+                    <li>Founding Member pricing</li>
                 </ul>
                 <a href="https://prompt-vault.lemonsqueezy.com/checkout/buy/lifetime-id" class="btn-primary">Get Lifetime Access</a>
             </div>
@@ -625,8 +650,8 @@
     <!-- CTA -->
     <section class="section">
         <div class="cta-box">
-            <h2>Ready to supercharge your AI workflow?</h2>
-            <p>Join 50+ professionals who never write the same prompt twice.</p>
+            <h2>Ready to Supercharge Your AI Workflow?</h2>
+            <p>Join 50+ professionals who never write the same prompt twice. Built for teams. Secured by you.</p>
             <a href="https://chromewebstore.google.com" class="btn-primary">🚀 Add to Chrome — It's Free</a>
         </div>
     </section>
@@ -634,8 +659,8 @@
     <!-- Legal Sections -->
     <section class="legal-section" id="privacy">
         <h3>Privacy Policy</h3>
-        <p><strong>Last Updated:</strong> July 2026</p>
-        <p>Prompt Vault is a Chrome Extension designed to help you manage and inject AI prompts. We take your privacy seriously.</p>
+        <p><strong>Last Updated:</strong> August 2026</p>
+        <p>Prompt Vault: AI Manager is a Chrome Extension designed to help you manage and inject AI prompts. We take your privacy seriously.</p>
         <h4>1. Information We Collect</h4>
         <ul>
             <li><strong>Google Account Email:</strong> Collected only if you choose to sign in to enable Team Sharing or Cloud Backup features.</li>
@@ -644,23 +669,23 @@
         <h4>2. How We Use Your Information</h4>
         <p>We use your email solely for authentication and account management. We do not sell, share, or analyze your prompt data for advertising or training purposes.</p>
         <h4>3. Data Security</h4>
-        <p>All data transmission is encrypted via HTTPS. We utilize Supabase's secure authentication and Google's official OAuth APIs.</p>
+        <p>All data transmission is encrypted via HTTPS. We utilize Supabase's secure authentication and Google's official OAuth APIs. Your Google Drive backup is stored in your personal Drive, not our servers.</p>
         <h4>4. Contact Us</h4>
         <p>For any privacy-related questions, please contact us at: <a href="mailto:cookingconverter.tools@gmail.com" style="color: var(--accent-primary);">cookingconverter.tools@gmail.com</a></p>
     </section>
 
     <section class="legal-section" id="terms">
         <h3>Terms of Service</h3>
-        <p><strong>Last Updated:</strong> July 2026</p>
+        <p><strong>Last Updated:</strong> August 2026</p>
         <h4>1. Acceptance of Terms</h4>
-        <p>By installing and using Prompt Vault, you agree to these Terms of Service.</p>
+        <p>By installing and using Prompt Vault: AI Manager, you agree to these Terms of Service.</p>
         <h4>2. Service Description</h4>
         <p>Prompt Vault is provided "as is" to help users organize and inject text prompts into web-based AI chat interfaces. We do not guarantee uninterrupted or error-free service.</p>
         <h4>3. Pricing and Payments</h4>
         <ul>
             <li><strong>Starter Plan:</strong> Free, limited to 10 prompt slots.</li>
             <li><strong>Pro Monthly:</strong> Billed at $7/month. Cancel anytime via your Lemon Squeezy customer portal.</li>
-            <li><strong>Pro Lifetime:</strong> A one-time payment of $29. This grants lifetime access to the current major version of the software and future minor updates. Major version overhauls may require a separate upgrade fee at our discretion.</li>
+            <li><strong>Pro Lifetime:</strong> A one-time payment of $29 (Founding Member pricing, first 100 users). This grants lifetime access to the current major version of the software and future minor updates. Major version overhauls may require a separate upgrade fee at our discretion.</li>
         </ul>
         <h4>4. Limitation of Liability</h4>
         <p>Prompt Vault is not liable for any data loss. We strongly recommend using the built-in Google Drive Backup feature to safeguard your prompts.</p>
@@ -670,7 +695,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Prompt Vault. Built with ❤️ for the AI-first generation.</p>
+        <p>© 2026 Prompt Vault: AI Manager. Built with ❤️ for the AI-first generation.</p>
         <p style="margin-top: 12px; font-size: 13px;">
             <a href="#privacy">Privacy Policy</a> • 
             <a href="#terms">Terms of Service</a> • 
