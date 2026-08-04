@@ -664,7 +664,12 @@
         <h4>1. Information We Collect</h4>
         <ul>
             <li><strong>Google Account Email:</strong> Collected only if you choose to sign in to enable Team Sharing or Cloud Backup features.</li>
-            <li><strong>Prompt Data:</strong> Stored locally in your browser's `chrome.storage`. If you enable Team Sharing or Google Drive Backup, this data is encrypted and stored in your personal Supabase database or Google Drive account.</li>
+            <li><strong>Prompt Data:</strong> Stored locally in your browser's `chrome.storage` by default. 
+              <ul>
+                <li>If you enable <strong>Team Sharing</strong>, prompts are securely stored in our Supabase database, strictly isolated by your unique Team ID so only your team members can access them.</li>
+                <li>If you enable <strong>Google Drive Backup</strong>, a copy of your library is saved directly to your personal Google Drive, giving you full ownership and portability of your data.</li>
+              </ul>
+            </li>
         </ul>
         <h4>2. How We Use Your Information</h4>
         <p>We use your email solely for authentication and account management. We do not sell, share, or analyze your prompt data for advertising or training purposes.</p>
